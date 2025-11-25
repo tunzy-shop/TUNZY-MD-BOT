@@ -1,17 +1,14 @@
 {
   "name": "tunzy-md-bot",
   "version": "1.0.0",
-  "main": "index.js",
   "type": "module",
+  "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "dependencies": {
     "@whiskeysockets/baileys": "latest",
-    "axios": "latest",
     "express": "latest",
-    "qrcode-terminal": "latest",
-    "sharp": "latest",
-    "@hapi/boom": "latest"
+    "body-parser": "latest"
   }
 }
