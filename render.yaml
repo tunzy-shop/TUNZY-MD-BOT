@@ -1,15 +1,9 @@
 services:
-  - type: web
-    name: tunzy-md-bot
+  - name: tunzy-md-bot
+    type: web
     env: node
-    runtime: node
     plan: free
     region: frankfurt
-    buildCommand: npm install
-    startCommand: node index.js
-
-    envVars:
-      NODE_VERSION: 18
-      PORT: 3000
-
+    buildCommand: "npm install"
+    startCommand: "npm start"
     autoDeploy: true
