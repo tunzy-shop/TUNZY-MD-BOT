@@ -9,6 +9,8 @@
   "dependencies": {
     "@whiskeysockets/baileys": "latest",
     "express": "latest",
-    "body-parser": "latest"
+    "cors": "latest",
+    "axios": "latest",
+    "sharp": "latest"
   }
 }
