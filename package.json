@@ -1,5 +1,5 @@
 {
-  "name": "tunzy-md-bot",
+  "name": "tunzy-md-bot-360dialog",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
@@ -7,10 +7,12 @@
     "start": "node index.js"
   },
   "dependencies": {
-    "@whiskeysockets/baileys": "latest",
-    "express": "latest",
-    "cors": "latest",
     "axios": "latest",
-    "sharp": "latest"
+    "express": "latest",
+    "body-parser": "latest",
+    "sharp": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "form-data": "latest"
   }
 }
