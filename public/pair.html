@@ -5,61 +5,24 @@
   <title>🌿 TUNZY MD BOT MENU 🌿</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-    :root {
-      --emerald: #00b894;
-      --bg1: #071014;
-      --bg2: #0b1b23;
-      --card: rgba(255,255,255,0.04);
-    }
-    html,body{height:100%;margin:0;font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;}
-    body{display:grid;place-items:center;background: radial-gradient(circle at 10% 10%, rgba(0,184,148,0.12), transparent 5%), linear-gradient(135deg,var(--bg1),var(--bg2));color:#e6f7f2}
-    .card{width:94%;max-width:520px;background:var(--card);padding:28px;border-radius:14px;box-shadow:0 8px 30px rgba(0,0,0,0.6);backdrop-filter:blur(6px);text-align:center;border:1px solid rgba(0,0,0,0.25)}
-    .logo{font-size:20px;font-weight:700;color:var(--emerald);letter-spacing:1px}
-    h1{margin:6px 0 6px;font-size:22px}
-    p.sub{color:#9fdacb;margin:6px 0 16px}
-    input{width:78%;padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:#e6f7f2;font-size:15px}
-    button{padding:12px 18px;background:var(--emerald);border:0;border-radius:10px;color:#012;cursor:pointer;font-weight:700;margin-left:8px}
-    button:hover{filter:brightness(1.05)}
-    .code{margin-top:18px;padding:14px;border-radius:10px;background:rgba(0,0,0,0.4);font-weight:700;letter-spacing:3px;color:var(--emerald);display:inline-block}
-    .note{color:#9fdacb;font-size:13px;margin-top:10px}
-    .footer{margin-top:16px;font-size:12px;color:#8fbfb0}
-    .pulse{display:inline-block;width:10px;height:10px;background:var(--emerald);border-radius:50%;box-shadow:0 0 20px rgba(0,184,148,0.6);animation:pulse 1.8s infinite}
-    @keyframes pulse{0%{transform:scale(.9);opacity:.8}70%{transform:scale(1.2);opacity:.4}100%{transform:scale(.9);opacity:.8}}
+    :root { --emerald:#00b894; --bg1:#071014; --bg2:#0b1b23; }
+    html,body{height:100%;margin:0;font-family:Inter,Arial}
+    body{display:grid;place-items:center;background:radial-gradient(circle at 10% 10%, rgba(0,184,148,0.08), transparent 5%), linear-gradient(135deg,var(--bg1),var(--bg2));color:#e6f7f2}
+    .card{width:94%;max-width:520px;background:rgba(255,255,255,0.03);padding:22px;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,0.6);text-align:center}
+    .logo{font-size:18px;font-weight:700;color:var(--emerald)}
+    h1{margin:6px 0 4px;font-size:20px}
+    p.sub{color:#9fdacb;margin:6px 0 12px}
+    .footer{margin-top:12px;font-size:12px;color:#8fbfb0}
+    img { max-width:160px; border-radius:10px; margin-bottom:10px; }
   </style>
 </head>
 <body>
   <div class="card">
     <div class="logo">🌿 TUNZY MD BOT</div>
-    <h1>Pair your WhatsApp — get pairing code</h1>
-    <p class="sub">Enter your number with country code and press <b>Get Pairing Code</b></p>
-
-    <div>
-      <input id="number" placeholder="+2349067XXXXXX" />
-      <button onclick="generate()">Get Pairing Code</button>
-    </div>
-
-    <div id="result" style="margin-top:18px"></div>
-    <div class="note">After pairing the bot will start for your number. If it shows ALREADY-PAIRED, open your Linked Devices in WhatsApp.</div>
-    <div class="footer" style="margin-top:14px">Powered by TUNZY SHOP — <span class="pulse"></span></div>
+    <img src="/botpic.jpg" alt="botpic" />
+    <h1>Bot running</h1>
+    <p class="sub">This server accepts incoming WhatsApp messages via 360dialog webhook. If everything is configured, the bot replies to commands.</p>
+    <div class="footer">Owner: Tunzy Shop — channel included in menu</div>
   </div>
-
-<script>
-async function generate(){
-  document.getElementById("result").innerHTML = "<div class='code'>Generating...</div>";
-  const number = document.getElementById("number").value.trim();
-  if(!number){ document.getElementById("result").innerHTML = "<div style='color:#ff7b7b'>Enter a valid number</div>"; return; }
-  try {
-    const res = await fetch("/generate", { method: "POST", headers: {'Content-Type':'application/json'}, body: JSON.stringify({ number }) });
-    const j = await res.json();
-    if(j.error) {
-      document.getElementById("result").innerHTML = "<div style='color:#ffb3b3'>"+j.error+"</div>";
-    } else {
-      document.getElementById("result").innerHTML = "<div class='code'>"+j.code+"</div>";
-    }
-  } catch (e) {
-    document.getElementById("result").innerHTML = "<div style='color:#ffb3b3'>Server error</div>";
-  }
-}
-</script>
 </body>
 </html>
